@@ -5,3 +5,5 @@ class TimeFormat:
         self.seconds = time_str[6:8]
         self.milliseconds = time_str[9:]
 
+        # TODO: add_offset function
+
