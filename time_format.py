@@ -7,3 +7,7 @@ class TimeFormat:
 
         # TODO: add_offset function
 
+    def test(self):
+        # print("test", self.hours, self.minutes, self.seconds, self.milliseconds)
+        return '(just seconds: ' + self.seconds + ' )'
+

@@ -3,7 +3,8 @@ import fileinput
 from time_format import TimeFormat
 
 for line in fileinput.input("subtitles.srt", inplace=True):
-    x = re.sub(r"\d{2}:\d{2}:\d{2},\d{3}", "00:00:00,000", line)
-    print('{}'.format(x), end='')
+    times = re.findall(r"(\d{2}:\d{2}:\d{2},\d{3})", line)
+    for time in times:
+        line = re.sub(r"(\d{2}:\d{2}:\d{2},\d{3})", TimeFormat(time).test(), line, 1)
 
-    # print(line)
+    print(line, end='')
