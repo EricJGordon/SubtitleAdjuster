@@ -9,7 +9,7 @@ class TimeFormat:
 
     def test(self):
         # print("test", self.hours, self.minutes, self.seconds, self.milliseconds)
-        return '(just seconds: ' + self.seconds + ' )'
+        return '(just seconds: ', self.secs, ' )'
 
     def offset_by(self, offset):
         other = TimeFormat(offset)
@@ -28,4 +28,6 @@ class TimeFormat:
         self.hours = (self.hours + other.hours) % 100
         # hours not guaranteed to be correct in cases of overflow, but realistically not a problem
 
-        # combine and handle leading 0's
+        return "{}:{}:{},{}".format(self.hours, self.mins, self.secs, self.millis)
+
+        # TODO: handle leading 0's
