@@ -26,8 +26,8 @@ class TimeFormat:
         self.mins = temp % 60
 
         self.hours = (self.hours + other.hours) % 100
-        # hours not guaranteed to be correct in cases of overflow, but realistically not a problem
+        # hours no longer correct in cases of overflow, but realistically not a problem
+        # more important to constrain it to two digit max
 
-        return "{}:{}:{},{}".format(self.hours, self.mins, self.secs, self.millis)
+        return "{:02}:{:02}:{:02},{:03}".format(self.hours, self.mins, self.secs, self.millis)
 
-        # TODO: handle leading 0's
