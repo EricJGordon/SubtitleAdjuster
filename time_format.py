@@ -5,10 +5,6 @@ class TimeFormat:
         self.secs = int(time_str[6:8])
         self.millis = int(time_str[9:])
 
-    def test(self):
-        # print("test", self.hours, self.minutes, self.seconds, self.milliseconds)
-        return '(just seconds: ', self.secs, ' )'
-
     def offset_by(self, offset):
         other = TimeFormat(offset)
         temp = self.millis + other.millis
@@ -27,5 +23,5 @@ class TimeFormat:
         # hours no longer correct in cases of overflow, but realistically not a problem
         # more important to constrain it to two digit max
 
-        return "{:02}:{:02}:{:02},{:03}".format(self.hours, self.mins, self.secs, self.millis)
+        return f"{self.hours:02}:{self.mins:02}:{self.secs:02},{self.millis:03}"
 
