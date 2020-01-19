@@ -11,5 +11,3 @@ def time_repl(match):
 for line in fileinput.input(sys.argv[1], inplace=True):
     line = re.sub(r"\d{2}:\d{2}:\d{2},\d{3}", time_repl, line)
     print(line, end='')
-
-# TODO: allow negative offsets, i.e. decreasing times

@@ -1,12 +1,12 @@
 class TimeFormat:
-    def __init__(self, time_str):
-        self.hours = int(time_str[:2])
-        self.mins = int(time_str[3:5])
-        self.secs = int(time_str[6:8])
-        self.millis = int(time_str[9:])
+    def __init__(self, time_str, op='+'):
+        self.hours = int(op + time_str[:2])
+        self.mins = int(op + time_str[3:5])
+        self.secs = int(op + time_str[6:8])
+        self.millis = int(op + time_str[9:])
 
     def offset_by(self, offset):
-        other = TimeFormat(offset)
+        other = TimeFormat(offset[1:], offset[0])
         temp = self.millis + other.millis
         self.secs += temp // 1000
         self.millis = temp % 1000
